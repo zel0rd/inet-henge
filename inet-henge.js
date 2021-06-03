@@ -26320,11 +26320,10 @@ class Tooltip {
         };
     }
     configureNodeClickCallback(element) {
-        d3__WEBPACK_IMPORTED_MODULE_0__["select"](`#${this.nodeId(true)}`).on('click', function () {
-            location.href = `vmrc://root@39.115.210.230?moid=vm-34004`;
-        }
-        // this.toggleVisibilityCallback(element)
-        );
+        // d3.select(`#${this.nodeId(true)}`).on('click', function(){
+        //     location.href=`vmrc://root@39.115.210.230?moid=vm-34004`
+        // })
+        d3__WEBPACK_IMPORTED_MODULE_0__["select"](`#${this.nodeId(true)}`).on('click', this.toggleVisibilityCallback(element));
     }
     configureNodeHoverCallback(element) {
         d3__WEBPACK_IMPORTED_MODULE_0__["select"](`#${this.nodeId(true)}`).on('mouseenter', this.toggleVisibilityCallback(element));
