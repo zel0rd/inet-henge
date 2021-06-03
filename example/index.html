@@ -43,7 +43,7 @@
                 { "source": "Win7_5", "target": "Kali_2" },
     ]
     };
-  const diagram = new Diagram('#diagram', data, {pop: /.+(?=_)/, bundle: true, tooltip: 'click', positionCache: true, width:1500, height:800 });
+  const diagram = new Diagram('#diagram', data, {pop: /.+(?=_)/, bundle: true, tooltip: 'click', positionCache: 'fixed', width:1500, height:800 });
   diagram.init('loopback', 'interface', 'description', 'type');
 
   // 정규표현식 예시

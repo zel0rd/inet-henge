@@ -25401,8 +25401,9 @@ class Diagram {
     initSvg() {
         this.zoom = d3__WEBPACK_IMPORTED_MODULE_0__["behavior"].zoom();
         const container = d3__WEBPACK_IMPORTED_MODULE_0__["select"](this.options.selector).append('svg')
-            .attr('width', this.options.width)
-            .attr('height', this.options.height)
+            .attr('width', '1500')
+            .attr('height', '800')
+            .attr('style', 'fill:red; background-color:whitesmoke;')
             .append('g')
             .call(this.zoom.on('zoom', () => this.zoomCallback(container))).append('g');
         container.append('rect')
