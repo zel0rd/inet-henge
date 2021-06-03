@@ -12,7 +12,17 @@
 <div id="diagram"></div>
 <script>
   const data = {
-      "nodes": [{ "name": "Win7_1" }, { "name": "Win7_2" },{ "name": "Kali_1" },{ "name": "Kali_2" },{ "name": "Kali_3" }],
+      "nodes": [{ "name": "Win7_1",
+                  "icon": "./images/nat.png" }, 
+                { "name": "Win7_2",
+                  "icon": "./images/ix.png" }, 
+                { "name": "Win7_3",
+                  "icon": "./images/openflow.png" }, 
+                { "name": "Win7_4",
+                  "icon": "./images/router.png" }, 
+                { "name": "Win7_5",
+                  "icon": "./images/switch.png" },
+                { "name": "Kali_1" },{ "name": "Kali_2" },{ "name": "Kali_3" }],
       "links": [{ "source": "Win7_1", "target": "Kali_2" },
                 { "source": "Win7_1", "target": "Win7_2" },
                 { "source": "Kali_1", "target": "Kali_2" },
@@ -20,7 +30,7 @@
                 { "source": "Kali_3", "target": "Kali_2" },
     ]
     };
-  const diagram = new Diagram('#diagram', data, {pop: /(\w*_)/, bundle: true, tooltip: 'click'});
+  const diagram = new Diagram('#diagram', data, {pop: /.+(?=_)/, bundle: true, tooltip: 'click'});
   diagram.init('loopback', 'interface', 'description', 'type');
 
   // 정규표현식 예시
