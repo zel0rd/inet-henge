@@ -20,12 +20,14 @@
                 { "source": "Kali_3", "target": "Kali_2" },
     ]
     };
-  const diagram = new Diagram('#diagram', data, {pop: /^.{3}/, bundle: true, tooltip: 'click'});
+  const diagram = new Diagram('#diagram', data, {pop: /(\w*_)/, bundle: true, tooltip: 'click'});
   diagram.init('loopback', 'interface', 'description', 'type');
 
   // 정규표현식 예시
   // /^([^\s-]+)-/
   // /^.{3}/
+  // (\w*_)
+  // .+(?=_)
 </script>
 </body>
 
