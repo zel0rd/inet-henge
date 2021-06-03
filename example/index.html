@@ -11,8 +11,21 @@
 <body>
 <div id="diagram"></div>
 <script>
-  const diagram = new Diagram('#diagram', 'index.json', {pop: /^([^\s-]+)-/, bundle: true, tooltip: 'click'});
+  const data = {
+      "nodes": [{ "name": "Win7_1" }, { "name": "Win7_2" },{ "name": "Kali_1" },{ "name": "Kali_2" },{ "name": "Kali_3" }],
+      "links": [{ "source": "Win7_1", "target": "Kali_2" },
+                { "source": "Win7_1", "target": "Win7_2" },
+                { "source": "Kali_1", "target": "Kali_2" },
+                { "source": "Kali_1", "target": "Kali_3" },
+                { "source": "Kali_3", "target": "Kali_2" },
+    ]
+    };
+  const diagram = new Diagram('#diagram', data, {pop: /^.{3}/, bundle: true, tooltip: 'click'});
   diagram.init('loopback', 'interface', 'description', 'type');
+
+  // 정규표현식 예시
+  // /^([^\s-]+)-/
+  // /^.{3}/
 </script>
 </body>
 
