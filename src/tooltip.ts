@@ -59,11 +59,10 @@ export class Tooltip {
     }
 
     configureNodeClickCallback(element: SVGGElement): void {
-        // d3.select(`#${this.nodeId(true)}`).on('click', function(){
-        //     location.href=`vmrc://root@39.115.210.230?moid=vm-34004`
-        // })
-
         d3.select(`#${this.nodeId(true)}`).on('click', this.toggleVisibilityCallback(element))
+        d3.select(`#${this.nodeId(true)}`).on('contextmenu', function () {
+            location.href = `vmrc://root@39.115.210.230?moid=vm-34004`
+        })
     }
 
     configureNodeHoverCallback(element: SVGGElement): void {
