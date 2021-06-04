@@ -59,6 +59,9 @@
     const diagram = new Diagram('#diagram', data, { pop: /.+(?=_)/, bundle: true, tooltip: 'click', width: 1500, height: 800 });
     diagram.init('loopback', 'interface', 'description', 'type');
 
+    document.querySelector('#diagram').addEventListener("contextmenu", function (e) {
+      e.preventDefault();
+    })
     // 정규표현식 예시
     // /^([^\s-]+)-/
     // /^.{3}/
