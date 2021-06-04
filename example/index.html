@@ -1,57 +1,70 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8"/>
-    <link href="style.css" rel="stylesheet"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
-    <script src="../vendor/cola.min.js"></script>
-    <script src="../inet-henge.js"></script>
+  <meta charset="utf-8" />
+  <link href="style.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+  <script src="../vendor/cola.min.js"></script>
+  <script src="../inet-henge.js"></script>
 </head>
 
 <body>
-<div id="diagram"></div>
-<script>
-  const data = {
+  <div id="diagram"></div>
+  <script>
+    const data = {
       "nodes": [
-                { "name": "Node 1", "meta": { "loopback": "10.0.0.1" } },
-                { "name": "Win7_1",
-                  "icon": "./images/nat.png" }, 
-                { "name": "Win7_2",
-                  "icon": "./images/ix.png" }, 
-                { "name": "Win7_3",
-                  "icon": "./images/openflow.png" }, 
-                { "name": "Win7_4",
-                  "icon": "./images/router.png" }, 
-                { "name": "Win7_5",
-                  "icon": "./images/switch.png" },
-                { "name": "Kali_1" },{ "name": "Kali_2" },{ "name": "Kali_3" }],
-      "links": [{ "source": "Win7_1", "target": "Kali_2",
-                  "meta": {
-                    "interface": { "source": "192.168.0.1", "target": "192.168.50.1" }
-                  }
-                },
-                { "source": "Win7_1", "target": "Kali_2",
-                  "meta": {
-                    "interface": { "source": "192.168.0.1", "target": "192.168.50.1" }
-                  } 
-                },
-                { "source": "Win7_1", "target": "Win7_2" },
-                { "source": "Kali_1", "target": "Kali_2" },
-                { "source": "Kali_1", "target": "Kali_3" },
-                { "source": "Kali_3", "target": "Kali_2" },
-                { "source": "Win7_4", "target": "Kali_2" },
-                { "source": "Win7_5", "target": "Kali_2" },
-    ]
+        { "name": "Node 1", "meta": { "loopback": "10.0.0.1" } },
+        {
+          "name": "Win7_1",
+          "icon": "./images/nat.png"
+        },
+        {
+          "name": "Win7_2",
+          "icon": "./images/ix.png"
+        },
+        {
+          "name": "Win7_3",
+          "icon": "./images/openflow.png"
+        },
+        {
+          "name": "Win7_4",
+          "icon": "./images/router.png"
+        },
+        {
+          "name": "Win7_5",
+          "icon": "./images/switch.png"
+        },
+        { "name": "Kali_1" }, { "name": "Kali_2" }, { "name": "Kali_3" }],
+      "links": [{
+        "source": "Win7_1", "target": "Kali_2",
+        "meta": {
+          "interface": { "source": "192.168.0.1", "target": "192.168.50.1" }
+        }
+      },
+      {
+        "source": "Win7_1", "target": "Kali_2",
+        "meta": {
+          "interface": { "source": "192.168.0.1", "target": "192.168.50.1" }
+        }
+      },
+      { "source": "Win7_1", "target": "Win7_2" },
+      { "source": "Kali_1", "target": "Kali_2" },
+      { "source": "Kali_1", "target": "Kali_3" },
+      { "source": "Kali_3", "target": "Kali_2" },
+      { "source": "Win7_4", "target": "Kali_2" },
+      { "source": "Win7_5", "target": "Kali_2" },
+      ]
     };
-  const diagram = new Diagram('#diagram', data, {pop: /.+(?=_)/, bundle: true, tooltip: 'click', positionCache: 'fixed', width:1500, height:800 });
-  diagram.init('loopback', 'interface', 'description', 'type');
+    const diagram = new Diagram('#diagram', data, { pop: /.+(?=_)/, bundle: true, tooltip: 'click', width: 1500, height: 800 });
+    diagram.init('loopback', 'interface', 'description', 'type');
 
-  // 정규표현식 예시
-  // /^([^\s-]+)-/
-  // /^.{3}/
-  // (\w*_)
-  // .+(?=_)
-</script>
+    // 정규표현식 예시
+    // /^([^\s-]+)-/
+    // /^.{3}/
+    // (\w*_)
+    // .+(?=_)
+  </script>
 </body>
 
 </html>

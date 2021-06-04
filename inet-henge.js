@@ -25403,9 +25403,12 @@ class Diagram {
         const container = d3__WEBPACK_IMPORTED_MODULE_0__["select"](this.options.selector).append('svg')
             .attr('width', '1500')
             .attr('height', '800')
-            .attr('style', 'fill:red; background-color:whitesmoke;')
+            .attr('style', 'fill:black; background-image: url(https://user-images.githubusercontent.com/28799597/120762702-758b0500-c551-11eb-8747-940fef397a20.png);')
             .append('g')
-            .call(this.zoom.on('zoom', () => this.zoomCallback(container))).append('g');
+            .call(this.zoom.on('zoom', () => this.zoomCallback(container))).append('g')
+            .attr("id", "TEST");
+        // .attr("transform", "translate(-599.139, -256.645) scale(1.62001)");
+        // .attr("backgroundImage", "https://user-images.githubusercontent.com/28799597/120757998-42924280-c54c-11eb-9872-f43e6b45a48a.png");
         container.append('rect')
             .attr('width', this.options.width * 10) // 10 is huge enough
             .attr('height', this.options.height * 10)
