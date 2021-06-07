@@ -3,14 +3,39 @@
 
 <head>
   <meta charset="utf-8" />
-  <link href="style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="classlist.css" />
+  <!-- MaterialIcon -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
   <script src="../vendor/cola.min.js"></script>
   <script src="../inet-henge.js"></script>
 </head>
 
 <body>
-  <div id="diagram"></div>
+  <div class="container-main">
+    <div class="lectureTitle">
+      <button class="material-icons arrow_back" onclick="location.href='/classlist' ">
+        arrow_back
+      </button>
+      <h1>네트워크 실습 1일차 - ARP와 ARP Spoofing</h1>
+    </div>
+    <div class="wrapper-diagram">
+      <div id="diagram"></div>
+    </div>
+  </div>
+  <div class="container-aside">
+    <div class="aside__header">
+      <ul class="aside__nav">
+        <li>문제</li>
+        <li>정답</li>
+      </ul>
+    </div>
+    <div class="aside__body">
+      몸통 부분
+    </div>
+  </div>
+
   <script>
     const data = {
       "nodes": [
