@@ -121,8 +121,6 @@ export class Diagram {
     initSvg(): d3.Selection<any> {  // eslint-disable-line @typescript-eslint/no-explicit-any
         this.zoom = d3.behavior.zoom();
         const container = d3.select(this.options.selector).append('svg')
-            .attr('width', '1500')
-            .attr('height', '800')
             .attr('style', 'fill:black; background-image: url(https://user-images.githubusercontent.com/28799597/120762702-758b0500-c551-11eb-8747-940fef397a20.png);')
             .append('g')
             .call(
