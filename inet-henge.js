@@ -25312,6 +25312,66 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./src/data.js":
+/*!*********************!*\
+  !*** ./src/data.js ***!
+  \*********************/
+/*! exports provided: data */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "data", function() { return data; });
+const data = {
+    0:"vm-27",
+    1:"vm-0002",
+    2:"vm-0003",
+    3:"vm-0001",
+    4:"vm-0002",
+    5:"vm-0003",
+    6:"vm-0001",
+    7:"vm-0002",
+    8:"vm-0003",
+    9:"vm-0001",
+    10:"vm-0002",
+    11:"vm-0001",
+    12:"vm-0003",
+    13:"vm-0001",
+    14:"vm-0002",
+    15:"vm-0003",
+    16:"vm-0001",
+    17:"vm-0002",
+    18:"vm-0003",
+    19:"vm-0001"
+}
+// [
+//     'vm-0001',
+//     'vm-0002',
+//     'vm-0003',
+//     'vm-0004',
+//     'vm-0005',
+//     'vm-0006',
+//     'vm-0007',
+//     'vm-0008',
+//     'vm-0009',
+//     'vm-0010',
+//     'vm-0011',
+//     'vm-0011',
+//     'vm-0012',
+//     'vm-0013',
+//     'vm-0014',
+//     'vm-0015',
+//     'vm-0016',
+//     'vm-0017',
+//     'vm-0018',
+//     'vm-0019',
+//     'vm-0020'
+// ]
+
+
+
+/***/ }),
+
 /***/ "./src/diagram.ts":
 /*!************************!*\
   !*** ./src/diagram.ts ***!
@@ -26274,7 +26334,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tooltip", function() { return Tooltip; });
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "d3");
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(d3__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util */ "./src/util.ts");
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data */ "./src/data.js");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util */ "./src/util.ts");
+
 
 
 class Tooltip {
@@ -26294,7 +26356,7 @@ class Tooltip {
         return `tooltip ${this.nodeId()}`;
     }
     nodeId(escape = false) {
-        let id = Object(_util__WEBPACK_IMPORTED_MODULE_1__["classify"])(this.node.name);
+        let id = Object(_util__WEBPACK_IMPORTED_MODULE_2__["classify"])(this.node.name);
         if (escape) {
             id = CSS.escape(id);
         }
@@ -26322,9 +26384,16 @@ class Tooltip {
         };
     }
     configureNodeClickCallback(element) {
+        // vmrc://Administrator@aio.kr@www.allitone.kr:445?moid=vm-27
         d3__WEBPACK_IMPORTED_MODULE_0__["select"](`#${this.nodeId(true)}`).on('click', this.toggleVisibilityCallback(element));
-        d3__WEBPACK_IMPORTED_MODULE_0__["select"](`#${this.nodeId(true)}`).on('contextmenu', function () {
-            location.href = `vmrc://root@39.115.210.230?moid=vm-34004`;
+        d3__WEBPACK_IMPORTED_MODULE_0__["select"](`#${this.nodeId(true)}`).on('contextmenu', function (v) {
+            console.log(_data__WEBPACK_IMPORTED_MODULE_1__["data"][v.id], v.id);
+            if (_data__WEBPACK_IMPORTED_MODULE_1__["data"][v.id]) {
+                location.href = `vmrc://user1@aio.kr@www.allitone.kr:445?moid=` + _data__WEBPACK_IMPORTED_MODULE_1__["data"][v.id];
+            }
+            else {
+                alert('접근금지');
+            }
         });
     }
     configureNodeHoverCallback(element) {

@@ -49,8 +49,8 @@ h1 {
 }
 
 .wrapper-diagram {
-    height: 88%;
-    margin:24px;
+    height: 83%;
+    margin: 43px;
     border:1px solid black;
     box-shadow: 5px 5px 10px lightgrey;
 }
@@ -131,9 +131,8 @@ h1 {
 
 
 #TEST {
-    background-color: black;
-    transform: translate(-500px,-250px) scale(1.62001);
-
+    /* background-color: black;
+    transform: translate(-500px,-250px) scale(1.62001); */
 }
 #diagram {
     height: 100%;

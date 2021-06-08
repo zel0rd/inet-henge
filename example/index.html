@@ -124,51 +124,79 @@
   </div>
 
   <script>
-    const data = {
-      "nodes": [
-        { "name": "Node 1", "meta": { "loopback": "10.0.0.1" } },
-        {
-          "name": "Win7_1",
-          "icon": "./images/nat.png"
-        },
-        {
-          "name": "Win7_2",
-          "icon": "./images/ix.png"
-        },
-        {
-          "name": "Win7_3",
-          "icon": "./images/openflow.png"
-        },
-        {
-          "name": "Win7_4",
-          "icon": "./images/router.png"
-        },
-        {
-          "name": "Win7_5",
-          "icon": "./images/switch.png"
-        },
-        { "name": "Kali_1" }, { "name": "Kali_2" }, { "name": "Kali_3" }],
-      "links": [{
-        "source": "Win7_1", "target": "Kali_2",
-        "meta": {
-          "interface": { "source": "192.168.0.1", "target": "192.168.50.1" }
-        }
-      },
-      {
-        "source": "Win7_1", "target": "Kali_2",
-        "meta": {
-          "interface": { "source": "192.168.0.1", "target": "192.168.50.1" }
-        }
-      },
-      { "source": "Win7_1", "target": "Win7_2" },
-      { "source": "Kali_1", "target": "Kali_2" },
-      { "source": "Kali_1", "target": "Kali_3" },
-      { "source": "Kali_3", "target": "Kali_2" },
-      { "source": "Win7_4", "target": "Kali_2" },
-      { "source": "Win7_5", "target": "Kali_2" },
-      ]
-    };
-    const diagram = new Diagram('#diagram', data, { pop: /.+(?=_)/, bundle: true, tooltip: 'click', width: 1500, height: 800 });
+    let data = {}
+    let nodes = []
+    for (let i = 1; i < 41; i++) {
+      nodes.push({ 'name': `student_${i}`, 'icon': './images/router.png' })
+    }
+    data['nodes'] = nodes
+    console.log(data)
+    // const data = {
+    //   "nodes": [
+    //     {
+    //       "name": "student_1",
+    //       "icon": "./images/router.png"
+    //     },
+    //     {
+    //       "name": "student_1",
+    //       "icon": "./images/router.png"
+    //     },
+    //     {
+    //       "name": "student_1",
+    //       "icon": "./images/router.png"
+    //     },
+    //     {
+    //       "name": "student_1",
+    //       "icon": "./images/router.png"
+    //     },
+    //     {
+    //       "name": "student_1",
+    //       "icon": "./images/router.png"
+    //     },
+    //     {
+    //       "name": "student_1",
+    //       "icon": "./images/router.png"
+    //     },
+    //     {
+    //       "name": "student_1",
+    //       "icon": "./images/router.png"
+    //     },
+    //     {
+    //       "name": "student_1",
+    //       "icon": "./images/router.png"
+    //     },
+    //     {
+    //       "name": "student_1",
+    //       "icon": "./images/router.png"
+    //     },
+    //     {
+    //       "name": "student_1",
+    //       "icon": "./images/router.png"
+    //     },
+
+    //     { "name": "Kali_1" }, { "name": "Kali_2" }, { "name": "Kali_3" }],
+    //   "links": [{
+    //     "source": "Win7_1", "target": "Kali_2",
+    //     "meta": {
+    //       "interface": { "source": "192.168.0.1", "target": "192.168.50.1" }
+    //     }
+    //   },
+    //   {
+    //     "source": "Win7_1", "target": "Kali_2",
+    //     "meta": {
+    //       "interface": { "source": "192.168.0.1", "target": "192.168.50.1" }
+    //     }
+    //   },
+    //   { "source": "Win7_1", "target": "Win7_2" },
+    //   { "source": "Kali_1", "target": "Kali_2" },
+    //   { "source": "Kali_1", "target": "Kali_3" },
+    //   { "source": "Kali_3", "target": "Kali_2" },
+    //   { "source": "Win7_4", "target": "Kali_2" },
+    //   { "source": "Win7_5", "target": "Kali_2" },
+    //   ]
+    // };
+
+    const diagram = new Diagram('#diagram', 'index.json', { pop: /.+(?=_)/, bundle: true, tooltip: 'hover' });
     diagram.init('loopback', 'interface', 'description', 'type');
 
     document.querySelector('#diagram').addEventListener("contextmenu", function (e) {
