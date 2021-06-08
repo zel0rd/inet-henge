@@ -52,9 +52,26 @@ export class Node {
     }
 
     transform(): string {
+        let yIndex = 100;
+        let test = this.name.split("_")[1]
+        let Ntest: number = +test;
+
+        if (Ntest < 11) {
+          yIndex = 100;
+        } else if (Ntest < 21) {
+          yIndex = 200;
+        } else if (Ntest < 31) {
+          yIndex = 300;
+        } else if (Ntest < 41) {
+            yIndex = 400;
+        } else if (Ntest < 51) {
+            yIndex = 500;
+        } 
+        let xIndex = 60 * ((Ntest-1) % 10)+ 200;
+
         const x = this.x - this.width / 2 + this.padding;
         const y = this.y - this.height / 2 + this.padding;
-        return `translate(${x}, ${y})`;
+        return `translate(${xIndex}, ${yIndex})`;
     }
 
     nodeWidth(): number {
@@ -112,9 +129,9 @@ export class Node {
 
         text.each((d: Node) => {
             // Show meta only when "tooltip" option is not configured
-            if (!d.tooltip) {
-                Node.appendTspans(text, d.meta);
-            }
+            // if (!d.tooltip) {
+            //     Node.appendTspans(text, d.meta);
+            // }
         });
     }
 

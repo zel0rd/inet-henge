@@ -9,6 +9,8 @@ Array.from(tabs).map(function(tab){
     })
 })
 
+
+
 function deactive() {
     document.querySelector(".active").classList.remove("active")
     document.querySelector(".tab_active").classList.remove("tab_active")

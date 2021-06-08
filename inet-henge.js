@@ -25323,26 +25323,36 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "data", function() { return data; });
 const data = {
-    0:"vm-27",
-    1:"vm-0002",
-    2:"vm-0003",
-    3:"vm-0001",
-    4:"vm-0002",
-    5:"vm-0003",
-    6:"vm-0001",
-    7:"vm-0002",
-    8:"vm-0003",
-    9:"vm-0001",
-    10:"vm-0002",
-    11:"vm-0001",
-    12:"vm-0003",
-    13:"vm-0001",
-    14:"vm-0002",
-    15:"vm-0003",
-    16:"vm-0001",
-    17:"vm-0002",
-    18:"vm-0003",
-    19:"vm-0001"
+    0	:"vm-2010",
+    1	:"vm-2011",
+    2	:"vm-2012",
+    3	:"vm-2013",
+    4	:"vm-2014",
+    5	:"vm-2015",
+    6	:"vm-2016",
+    7	:"vm-2017",
+    8	:"vm-2018",
+    9	:"vm-2019",
+    10	:"vm-2020",
+    11	:"vm-2021",
+    12	:"vm-2022",
+    13	:"vm-2023",
+    14	:"vm-2024",
+    15	:"vm-2025",
+    16	:"vm-2026",
+    17	:"vm-2027",
+    18	:"vm-2028",
+    19	:"vm-2029",
+    20	:"vm-2030",
+    21	:"vm-2031",
+    22	:"vm-2032",
+    23	:"vm-2033",
+    24	:"vm-2034",
+    25	:"vm-2035",
+    26	:"vm-2036",
+    27	:"vm-2037",
+    28	:"vm-2038",
+    29	:"vm-2039"
 }
 // [
 //     'vm-0001',
@@ -25470,7 +25480,7 @@ class Diagram {
         container.append('rect')
             .attr('width', this.options.width * 10) // 10 is huge enough
             .attr('height', this.options.height * 10)
-            .attr('transform', `translate(-${this.options.width * 5}, -${this.options.height * 5})`)
+            // .attr('transform', `translate(-${this.options.width * 5}, -${this.options.height * 5})`)
             .style('opacity', 0);
         return container;
     }
@@ -26116,9 +26126,28 @@ class Node {
         Node.all[name] = id;
     }
     transform() {
+        let yIndex = 100;
+        let test = this.name.split("_")[1];
+        let Ntest = +test;
+        if (Ntest < 11) {
+            yIndex = 100;
+        }
+        else if (Ntest < 21) {
+            yIndex = 200;
+        }
+        else if (Ntest < 31) {
+            yIndex = 300;
+        }
+        else if (Ntest < 41) {
+            yIndex = 400;
+        }
+        else if (Ntest < 51) {
+            yIndex = 500;
+        }
+        let xIndex = 60 * ((Ntest - 1) % 10) + 200;
         const x = this.x - this.width / 2 + this.padding;
         const y = this.y - this.height / 2 + this.padding;
-        return `translate(${x}, ${y})`;
+        return `translate(${xIndex}, ${yIndex})`;
     }
     nodeWidth() {
         return this.width - 2 * this.padding;
@@ -26165,9 +26194,9 @@ class Node {
             .attr('x', (d) => d.xForText());
         text.each((d) => {
             // Show meta only when "tooltip" option is not configured
-            if (!d.tooltip) {
-                Node.appendTspans(text, d.meta);
-            }
+            // if (!d.tooltip) {
+            //     Node.appendTspans(text, d.meta);
+            // }
         });
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -26385,7 +26414,7 @@ class Tooltip {
     }
     configureNodeClickCallback(element) {
         // vmrc://Administrator@aio.kr@www.allitone.kr:445?moid=vm-27
-        d3__WEBPACK_IMPORTED_MODULE_0__["select"](`#${this.nodeId(true)}`).on('click', this.toggleVisibilityCallback(element));
+        // d3.select(`#${this.nodeId(true)}`).on('click', this.toggleVisibilityCallback(element))
         d3__WEBPACK_IMPORTED_MODULE_0__["select"](`#${this.nodeId(true)}`).on('contextmenu', function (v) {
             console.log(_data__WEBPACK_IMPORTED_MODULE_1__["data"][v.id], v.id);
             if (_data__WEBPACK_IMPORTED_MODULE_1__["data"][v.id]) {

@@ -133,7 +133,7 @@ export class Diagram {
         container.append('rect')
             .attr('width', this.options.width * 10) // 10 is huge enough
             .attr('height', this.options.height * 10)
-            .attr('transform', `translate(-${this.options.width * 5}, -${this.options.height * 5})`)
+            // .attr('transform', `translate(-${this.options.width * 5}, -${this.options.height * 5})`)
             .style('opacity', 0);
 
         return container;
