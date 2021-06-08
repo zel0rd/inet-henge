@@ -139,3 +139,129 @@ h1 {
     height: 100%;
     width: 100%;
 }
+
+.container-aside {
+    background-color: #F2F2F2;
+    border: .1rem solid hsla(0, 0%, calc(82.8% * var(--theme-brightness, 1) + 20.932% * (1 - var(--theme-brightness, 1))), 1);
+}
+
+
+.aside__tablist > ul {
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 24px;
+    color:#9b9ba0;
+    font-weight: bold;
+    
+    margin: .8rem 2.2rem .9rem 0;
+    margin-left:30px;
+    padding-left:0;
+    padding-bottom: .5rem;
+    border: 0;
+    border-bottom: .1rem solid #CCCCCC;
+}
+.aside__tablist > ul > li {
+    cursor:pointer;
+}
+
+
+.aside__header {
+    display: flex;
+    margin: 8px 22px 0 0;
+    position: relative;
+}
+
+
+ul>.active {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-start; */
+    /* padding: 0 15px; */
+    /* font-size: 1.1rem; */
+    color: #AB001F !important;
+}
+
+ul>.active::after {
+    position: absolute;
+    content: "";
+    border-bottom: 0.2em solid currentColor;
+    width: 100%;
+    top: 1.8rem;
+}
+
+.aside__contents {
+    height: 87%;
+    background-color: white;
+    margin: 1.5rem 2.2rem 1.5rem 1.8rem;
+    border: .1rem solid hsla(0, 0%, calc(82.8% * var(--theme-brightness, 1) + 20.932% * (1 - var(--theme-brightness, 1))), 1);
+    padding:12px;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.aside__contents::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+.aside__mission {    
+    list-style: none;
+    border: .1rem solid hsla(0, 0%, calc(82.8% * var(--theme-brightness, 1) + 20.932% * (1 - var(--theme-brightness, 1))), 1);
+    padding: 20px;
+    margin: 12px 10px;
+    background-color: whitesmoke;
+}
+
+.tab {
+    display: none;
+    padding:0;
+}
+
+.tab_active {
+    display: block !important;
+}
+
+
+input:focus{
+    outline: 1px solid #D52626;
+}
+
+.aside__submit {
+    margin: 15px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 30px;
+    /* padding-left: 9px; */
+}
+
+.aside__answer {
+    /* margin: 15px 0 -15px 0; */
+    padding-left: 10px;
+    border-radius: 4px;
+    box-shadow: none;
+    background: white;
+    color: #5f5f5f;
+    border: 1px solid transparent;
+    width: 75%;
+    /* height: 30px; */
+}
+
+.submit {
+    cursor: pointer;
+    color:white;
+    font-weight: bold;
+    background-color:#D52626;
+    border:none;
+    border-radius: 3px;
+}
+
+h3 {
+    color: black;
+}
+
+p {
+    color:grey;
+}
