@@ -52,26 +52,32 @@ export class Node {
     }
 
     transform(): string {
-        let yIndex = 100;
-        let test = this.name.split("_")[1]
-        let Ntest: number = +test;
-
-        if (Ntest < 11) {
-          yIndex = 100;
-        } else if (Ntest < 21) {
-          yIndex = 200;
-        } else if (Ntest < 31) {
-          yIndex = 300;
-        } else if (Ntest < 41) {
-            yIndex = 400;
-        } else if (Ntest < 51) {
-            yIndex = 500;
-        } 
-        let xIndex = 60 * ((Ntest-1) % 10)+ 200;
-
-        const x = this.x - this.width / 2 + this.padding;
-        const y = this.y - this.height / 2 + this.padding;
-        return `translate(${xIndex}, ${yIndex})`;
+        if(this.name==="Attacker"){
+            return `translate(200,30)`;
+        } else if(this.name==="Server"){
+            return `translate(300,30)`;
+        } else {
+            let yIndex = 100;
+            let test = this.name.split("_")[1]
+            let Ntest: number = +test;
+    
+            if (Ntest < 11) {
+                yIndex = 100;
+            } else if (Ntest < 21) {
+                yIndex = 200;
+            } else if (Ntest < 31) {
+                yIndex = 300;
+            } else if (Ntest < 41) {
+                yIndex = 400;
+            } else if (Ntest < 51) {
+                yIndex = 500;
+            } 
+            let xIndex = 60 * ((Ntest-1) % 10)+ 200;
+    
+            // const x = this.x - this.width / 2 + this.padding;
+            // const y = this.y - this.height / 2 + this.padding;
+            return `translate(${xIndex}, ${yIndex})`;
+        }
     }
 
     nodeWidth(): number {

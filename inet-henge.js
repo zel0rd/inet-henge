@@ -25352,7 +25352,9 @@ const data = {
     26	:"vm-2036",
     27	:"vm-2037",
     28	:"vm-2038",
-    29	:"vm-2039"
+    29	:"vm-2039",
+    30	:"Attacker",
+    31	:"Server",
 }
 // [
 //     'vm-0001',
@@ -26126,28 +26128,36 @@ class Node {
         Node.all[name] = id;
     }
     transform() {
-        let yIndex = 100;
-        let test = this.name.split("_")[1];
-        let Ntest = +test;
-        if (Ntest < 11) {
-            yIndex = 100;
+        if (this.name === "Attacker") {
+            return `translate(200,30)`;
         }
-        else if (Ntest < 21) {
-            yIndex = 200;
+        else if (this.name === "Server") {
+            return `translate(300,30)`;
         }
-        else if (Ntest < 31) {
-            yIndex = 300;
+        else {
+            let yIndex = 100;
+            let test = this.name.split("_")[1];
+            let Ntest = +test;
+            if (Ntest < 11) {
+                yIndex = 100;
+            }
+            else if (Ntest < 21) {
+                yIndex = 200;
+            }
+            else if (Ntest < 31) {
+                yIndex = 300;
+            }
+            else if (Ntest < 41) {
+                yIndex = 400;
+            }
+            else if (Ntest < 51) {
+                yIndex = 500;
+            }
+            let xIndex = 60 * ((Ntest - 1) % 10) + 200;
+            // const x = this.x - this.width / 2 + this.padding;
+            // const y = this.y - this.height / 2 + this.padding;
+            return `translate(${xIndex}, ${yIndex})`;
         }
-        else if (Ntest < 41) {
-            yIndex = 400;
-        }
-        else if (Ntest < 51) {
-            yIndex = 500;
-        }
-        let xIndex = 60 * ((Ntest - 1) % 10) + 200;
-        const x = this.x - this.width / 2 + this.padding;
-        const y = this.y - this.height / 2 + this.padding;
-        return `translate(${xIndex}, ${yIndex})`;
     }
     nodeWidth() {
         return this.width - 2 * this.padding;
