@@ -62,10 +62,11 @@ export class Tooltip {
     configureNodeClickCallback(element: SVGGElement): void {
         // vmrc://Administrator@aio.kr@www.allitone.kr:445?moid=vm-27
         // d3.select(`#${this.nodeId(true)}`).on('click', this.toggleVisibilityCallback(element))
+        // d3.select(`#${this.nodeId(true)}`).on('click', this.toggleVisibilityCallback(element))
         d3.select(`#${this.nodeId(true)}`).on('contextmenu', function (v) {
             console.log(data[v.id], v.id)
             if(data[v.id]){
-                location.href = `vmrc://user1@aio.kr@www.allitone.kr:445?moid=` + data[v.id]
+                location.href = `vmrc://user1@aio.kr@www.allitone.kr:9000?moid=` + data[v.id]
             } else {
                 alert('접근금지')
             }

@@ -22,6 +22,24 @@
       <h1>네트워크 실습 1일차 - ARP와 ARP Spoofing</h1>
     </div>
     <div class="wrapper-diagram">
+      <button class="vmmapBtn" id="zoomin">
+        <h1>+</h1>
+      </button>
+      <button class="vmmapBtn" id="zoomout">
+        <h1>-</h1>
+      </button>
+      <button class="vmmapBtn" id="up">
+        <h1>UP</h1>
+      </button>
+      <button class="vmmapBtn" id="down">
+        <h1>DOWN</h1>
+      </button>
+      <button class="vmmapBtn" id="left">
+        <h1>LEFT</h1>
+      </button>
+      <button class="vmmapBtn" id="right">
+        <h1>RIGHT</h1>
+      </button>
       <div id="diagram"></div>
     </div>
   </div>
@@ -124,7 +142,7 @@
   </div>
 
   <script>
-    const diagram = new Diagram('#diagram', 'index.json', { bundle: true });
+    const diagram = new Diagram('#diagram', 'index.json', { bundle: true, tooltip: 'click' });
     diagram.init('loopback', 'interface', 'description', 'type');
 
     document.querySelector('#diagram').addEventListener("contextmenu", function (e) {
