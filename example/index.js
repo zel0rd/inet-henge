@@ -5,9 +5,9 @@ let vmmap = document.querySelector("#TEST")
 // let zoomoutBtn = document.querySelector("#zoomout")
 let btns = document.querySelectorAll(".vmmapBtn")
 
-let scale = 1;
-let xIndex = 0;
-let yIndex = 0;
+let xInit = -1894;
+let yInit = -1675;
+let scaleInit = 1.7;
 
 // translate(0,0)
 Array.from(tabs).map(function(tab){
@@ -17,10 +17,19 @@ Array.from(tabs).map(function(tab){
         document.querySelectorAll(`#${this.id}`)[1].classList.add("tab_active")
     })
 })
-console.log(btns)
 
 Array.from(btns).map(function(btn){
     btn.addEventListener("click", function(){
+        // -1894.294936249315,-1675.
+        let scale = scaleInit;
+        let xIndex = xInit;
+        let yIndex = yInit;
+        if(vmmap.getAttribute('transform') !== null){
+            xIndex = Number(vmmap.getAttribute('transform').split(" ")[0].replace("translate","").replace("(","").replace(")","").split(",")[0])
+            yIndex = Number(vmmap.getAttribute('transform').split(" ")[0].replace("translate","").replace("(","").replace(")","").split(",")[1])
+            scale= Number(vmmap.getAttribute('transform').split(" ")[1].replace("scale","").replace("(","").replace(")",""))
+        }
+
         if(btn.id === "zoomin"){
             scale += .1;
         }
@@ -44,13 +53,26 @@ Array.from(btns).map(function(btn){
         if(btn.id === "left"){
             xIndex += 100;
         }
+
+        if(btn.id === "init"){
+            xIndex = xInit
+            yIndex = yInit
+            scale = scaleInit
+        }
         
-        vmmap.style.transform = `translate(${xIndex}px,${yIndex}px) scale(${scale})`
-        console.log(typeof vmmap.getAttribute('translate'))
-        console.log(vmmap.getAttribute('translate'))
-        console.log(scale, xIndex, yIndex)
+        // vmmap.style.transform = `translate(${xIndex}px,${yIndex}px) scale(${scale})`
+        vmmap.setAttribute("transform",`translate(${xIndex},${yIndex}) scale(${scale})`)
+        // console.log(typeof vmmap.getAttribute('transform'))
+        // console.log(vmmap.getAttribute('transform'))
+        // console.log(scale, xIndex, yIndex)
     })
 })
+
+setInitPos();
+
+function setInitPos() {
+    vmmap.setAttribute("transform",`translate(${xInit},${yInit}) scale(${scaleInit})`)
+}
 
 function deactive() {
     document.querySelector(".active").classList.remove("active")

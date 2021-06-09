@@ -26129,10 +26129,10 @@ class Node {
     }
     transform() {
         if (this.name === "Attacker") {
-            return `translate(200,30)`;
+            return `translate(1200,1030)`;
         }
         else if (this.name === "Server") {
-            return `translate(300,30)`;
+            return `translate(1300,1030)`;
         }
         else {
             let yIndex = 100;
@@ -26156,7 +26156,7 @@ class Node {
             let xIndex = 60 * ((Ntest - 1) % 10) + 200;
             // const x = this.x - this.width / 2 + this.padding;
             // const y = this.y - this.height / 2 + this.padding;
-            return `translate(${xIndex}, ${yIndex})`;
+            return `translate(${xIndex + 1000}, ${yIndex + 1000})`;
         }
     }
     nodeWidth() {
