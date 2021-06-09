@@ -32,10 +32,14 @@ Array.from(btns).map(function(btn){
 
         if(btn.id === "zoomin"){
             scale += .1;
+            xIndex -= 120;
+            yIndex -= 120;
         }
         
         if(btn.id === "zoomout"){
             scale -= .1;
+            xIndex += 120;
+            yIndex += 120;
         }
         
         if(btn.id === "up"){
@@ -55,9 +59,10 @@ Array.from(btns).map(function(btn){
         }
 
         if(btn.id === "init"){
-            xIndex = xInit
-            yIndex = yInit
-            scale = scaleInit
+            // xIndex = xInit
+            // yIndex = yInit
+            // scale = scaleInit
+            window.location.reload()
         }
         
         // vmmap.style.transform = `translate(${xIndex}px,${yIndex}px) scale(${scale})`
