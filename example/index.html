@@ -10,7 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
   <script src="../vendor/cola.min.js"></script>
   <script src="../inet-henge.js"></script>
-  <script defer type="module" src="./index.js"></script>
+  <!-- <script defer type="module" src="./index.js"></script> -->
 </head>
 
 <body>
@@ -22,7 +22,7 @@
       <h1>네트워크 실습 1일차 - ARP와 ARP Spoofing</h1>
     </div>
     <div class="wrapper-diagram">
-      <button class="vmmapBtn" id="zoomin">
+      <!-- <button class="vmmapBtn" id="zoomin">
         <h1>+</h1>
       </button>
       <button class="vmmapBtn" id="zoomout">
@@ -42,7 +42,7 @@
       </button>
       <button class="vmmapBtn" id="init">
         <h1>원위치</h1>
-      </button>
+      </button> -->
       <div id="diagram"></div>
     </div>
   </div>
@@ -145,7 +145,7 @@
   </div>
 
   <script>
-    const diagram = new Diagram('#diagram', 'index.json', { bundle: true, tooltip: 'click' });
+    const diagram = new Diagram('#diagram', 'index.json', { bundle: true, tooltip: 'click', pop: /.+(?=_)/ });
     diagram.init('loopback', 'interface', 'description', 'type');
 
     document.querySelector('#diagram').addEventListener("contextmenu", function (e) {
@@ -157,6 +157,8 @@
     // (\w*_)
     // .+(?=_)
   </script>
+
+  <script defer src="./temp.js"></script>
 </body>
 
 </html>

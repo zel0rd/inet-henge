@@ -26128,36 +26128,33 @@ class Node {
         Node.all[name] = id;
     }
     transform() {
-        if (this.name === "Attacker") {
-            return `translate(1200,1030)`;
-        }
-        else if (this.name === "Server") {
-            return `translate(1300,1030)`;
-        }
-        else {
-            let yIndex = 100;
-            let test = this.name.split("_")[1];
-            let Ntest = +test;
-            if (Ntest < 11) {
-                yIndex = 100;
-            }
-            else if (Ntest < 21) {
-                yIndex = 200;
-            }
-            else if (Ntest < 31) {
-                yIndex = 300;
-            }
-            else if (Ntest < 41) {
-                yIndex = 400;
-            }
-            else if (Ntest < 51) {
-                yIndex = 500;
-            }
-            let xIndex = 60 * ((Ntest - 1) % 10) + 200;
-            // const x = this.x - this.width / 2 + this.padding;
-            // const y = this.y - this.height / 2 + this.padding;
-            return `translate(${xIndex + 1000}, ${yIndex + 1000})`;
-        }
+        const x = this.x - this.width / 2 + this.padding;
+        const y = this.y - this.height / 2 + this.padding;
+        return `translate(${x}, ${y})`;
+        //     if(this.name==="Attacker"){
+        //         return `translate(1200,1030)`;
+        //     } else if(this.name==="Server"){
+        //         return `translate(1300,1030)`;
+        //     } else {
+        //         let yIndex = 100;
+        //         let test = this.name.split("_")[1]
+        //         let Ntest: number = +test;
+        //         if (Ntest < 11) {
+        //             yIndex = 100;
+        //         } else if (Ntest < 21) {
+        //             yIndex = 200;
+        //         } else if (Ntest < 31) {
+        //             yIndex = 300;
+        //         } else if (Ntest < 41) {
+        //             yIndex = 400;
+        //         } else if (Ntest < 51) {
+        //             yIndex = 500;
+        //         } 
+        //         let xIndex = 60 * ((Ntest-1) % 10)+ 200;
+        //         // const x = this.x - this.width / 2 + this.padding;
+        //         // const y = this.y - this.height / 2 + this.padding;
+        //         return `translate(${xIndex+1000}, ${yIndex+1000})`;
+        //     }
     }
     nodeWidth() {
         return this.width - 2 * this.padding;
